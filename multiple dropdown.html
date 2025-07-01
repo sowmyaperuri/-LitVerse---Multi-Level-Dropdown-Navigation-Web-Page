@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LitVerse - Library</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .auth-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .dropdown {
+            position: relative;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .dropdown:hover .dropdown-content,
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .submenu {
+            position: absolute;
+            left: 100%;
+            top: 0;
+            display: none;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .dropdown-content .dropdown:hover .submenu {
+            display: block;
+        }
+        .dropdown-content p, .submenu p {
+            padding: 10px;
+            margin: 0;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+        .dropdown-content p:hover, .submenu p:hover {
+            background: #f4f4f4;
+            border-radius: 5px;
+        }
+        .dark-mode {
+            background: #222;
+            color: #fff;
+        }
+        .dark-mode .navbar {
+            background: rgba(0, 0, 0, 0.9);
+        }
+        .dark-mode .dropdown-content,
+        .dark-mode .submenu {
+            background: #333;
+            color: white;
+        }
+        .dark-mode .dropdown-content p:hover, .dark-mode .submenu p:hover {
+            background: #444;
+        }
+        .toggle-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <h1>LitVerse</h1>
+            <div class="dropdown">
+                <p>Books</p>
+                <div class="dropdown-content">
+                    <p>Articles</p>
+                    <div class="dropdown">
+                        <p>Genres →</p>
+                        <div class="submenu">
+                            <p>Academic & Research</p>
+                            <p>Children’s Books</p>
+                            <p>Magazines & Periodicals</p>
+                            <p>E-Books & Audiobooks</p>
+                            <p>Fiction</p>
+                            <p>Non-Fiction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>Favorites</p>
+            <div class="dropdown">
+                <p>Events</p>
+                <div class="dropdown-content">
+                    <p>Old</p>
+                    <div class="dropdown">
+                        <p>Upcoming →</p>
+                        <div class="submenu">
+                            <p>Book Club Meetings</p>
+                            <p>Author Visits & Book Signings</p>
+                            <p>Reading Challenges & Competitions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>About Us</p>
+            <p>Help</p>
+        </div>
+        <div class="auth-links">
+            <p>Log in</p>
+            <p>Sign up</p>
+            <button id="theme-toggle" class="toggle-btn">🌙</button>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
